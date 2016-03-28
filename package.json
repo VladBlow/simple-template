@@ -1,0 +1,36 @@
+{
+  "name": "simple-template",
+  "version": "1.0.0",
+  "description": "Simple and easy template for assembly frontend projects with Gulp, Bower and SASS",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/VladBlow/simple-template"
+  },
+  "author": "https://github.com/VladBlow",
+  "license": "MIT",
+  "dependencies": {
+    "browser-sync": "^2.11.2",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-clean-css": "^2.0.4",
+    "gulp-imagemin": "^2.4.0",
+    "gulp-rigger": "^0.5.8",
+    "gulp-sass": "^2.2.0",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-uglify": "^1.5.3",
+    "gulp-watch": "^4.3.5",
+    "imagemin-pngquant": "^4.2.2",
+    "rimraf": "^2.5.2"
+  },
+  "bugs": {
+    "url": "https://github.com/VladBlow/simple-template/issues"
+  },
+  "homepage": "https://github.com/VladBlow/simple-template#readme",
+  "devDependencies": {
+    "gulp-minify-css": "^1.2.4"
+  }
+}
