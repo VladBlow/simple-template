@@ -14,7 +14,6 @@ var gulp = require('gulp'),
     browserSync = require("browser-sync"),
     reload = browserSync.reload;
 
-
 var path = {
     build: {
         html: 'build/',
@@ -40,7 +39,6 @@ var path = {
     clean: './build'
 };
 
-
 var config = {
     server: {
         baseDir: "./build"
@@ -48,7 +46,7 @@ var config = {
     tunnel: true,
     host: 'localhost',
     port: 9000,
-    logPrefix: "Frontend_Devil"
+    logPrefix: "dev_local_server"
 };
 
 gulp.task('html:build', function () {
