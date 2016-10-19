@@ -6,7 +6,6 @@ var gulp = require('gulp'),
     uglify = require('gulp-uglify'),
     sass = require('gulp-sass'),
     sourcemaps = require('gulp-sourcemaps'),
-    rigger = require('gulp-rigger'),
     cssmin = require('gulp-minify-css'),
     imagemin = require('gulp-imagemin'),
     pngquant = require('imagemin-pngquant'),
@@ -50,42 +49,40 @@ var config = {
 };
 
 gulp.task('html:build', function () {
-    gulp.src(path.src.html) //Выберем файлы по нужному пути
-        .pipe(rigger()) //Прогоним через rigger
-        .pipe(gulp.dest(path.build.html)) //Выплюнем их в папку build
-        .pipe(reload({stream: true})); //И перезагрузим наш сервер для обновлений
+    gulp.src(path.src.html)
+        .pipe(gulp.dest(path.build.html))
+        .pipe(reload({stream: true}));
 });
 
 gulp.task('js:build', function () {
-    gulp.src(path.src.js) //Найдем наш main файл
-        .pipe(rigger()) //Прогоним через rigger
-        .pipe(sourcemaps.init()) //Инициализируем sourcemap
-        .pipe(uglify()) //Сожмем наш js
-        .pipe(sourcemaps.write()) //Пропишем карты
-        .pipe(gulp.dest(path.build.js)) //Выплюнем готовый файл в build
-        .pipe(reload({stream: true})); //И перезагрузим сервер
+    gulp.src(path.src.js)
+        .pipe(sourcemaps.init())
+        .pipe(uglify())
+        .pipe(sourcemaps.write())
+        .pipe(gulp.dest(path.build.js))
+        .pipe(reload({stream: true}));
 });
 
 gulp.task('style:build', function () {
-    gulp.src(path.src.style) //Выберем наш main.scss
-        .pipe(sourcemaps.init()) //То же самое что и с js
-        .pipe(sass()) //Скомпилируем
-        .pipe(prefixer()) //Добавим вендорные префиксы
-        .pipe(cssmin()) //Сожмем
+    gulp.src(path.src.style)
+        .pipe(sourcemaps.init())
+        .pipe(sass())
+        .pipe(prefixer())
+        .pipe(cssmin())
         .pipe(sourcemaps.write())
-        .pipe(gulp.dest(path.build.css)) //И в build
+        .pipe(gulp.dest(path.build.css))
         .pipe(reload({stream: true}));
 });
 
 gulp.task('image:build', function () {
-    gulp.src(path.src.img) //Выберем наши картинки
-        .pipe(imagemin({ //Сожмем их
+    gulp.src(path.src.img)
+        .pipe(imagemin({
             progressive: true,
             svgoPlugins: [{removeViewBox: false}],
             use: [pngquant()],
             interlaced: true
         }))
-        .pipe(gulp.dest(path.build.img)) //И бросим в build
+        .pipe(gulp.dest(path.build.img))
         .pipe(reload({stream: true}));
 });
 
